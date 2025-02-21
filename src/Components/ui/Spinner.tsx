@@ -1,22 +1,28 @@
-import { cx } from '@/utils/cx';
+import { cv } from "@/lib/cx";
 
 export type SpinnerProps = {
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
 };
 
-export const Spinner = ({ size = 'md' }: SpinnerProps) => (
+const SpinnerVariants = cv(
+  "animate-spin fill-blue-600 text-gray-200 dark:text-gray-600",
+  {
+    variants: {
+      size: {
+        sm: "h-4 w-4",
+        md: "h-8 w-8",
+        lg: "h-12 w-12",
+      },
+    },
+    defaultVariants: { size: "md" },
+  },
+);
+
+export const Spinner = ({ size }: SpinnerProps) => (
   <output>
     <svg
       aria-hidden="true"
-      // className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-      className={cx(
-        {
-          'h-4 w-4': size === 'sm',
-          'h-8 w-8': size === 'md',
-          'h-12 w-12': size === 'lg',
-        },
-        'animate-spin fill-blue-600 text-gray-200 dark:text-gray-600',
-      )}
+      className={SpinnerVariants({ size })}
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
