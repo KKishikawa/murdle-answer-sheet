@@ -7,16 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Form } from "@/components/ui/form";
+import { FormImageSelector } from "@/components/ui/form-image-selector";
 import { toast } from "sonner";
 import type { z } from "zod";
 import {
@@ -47,25 +39,10 @@ export const ImageSelector = () => {
             <CardDescription>画像を選択してください</CardDescription>
           </CardHeader>
           <CardContent>
-            <FormField
-              control={form.control}
+            <FormImageSelector
+              form={form}
               name="answerSheet"
-              render={() => (
-                <FormItem>
-                  <FormLabel>ファイル</FormLabel>
-                  <FormControl>
-                    <Input
-                      type="file"
-                      accept={IMAGE_TYPES.join(",")}
-                      {...form.register("answerSheet")}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    This is your public display name.
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
+              accept={IMAGE_TYPES.join(", ")}
             />
           </CardContent>
           <CardFooter className="space-x-4">
