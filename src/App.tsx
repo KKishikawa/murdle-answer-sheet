@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout";
 import { ImageSelector } from "@/components/page/image-selector";
-import { ThemeProvider } from "@/components/provider/theme-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 function App() {
   return (

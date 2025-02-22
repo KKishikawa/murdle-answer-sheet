@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/sonner";
 import { Header } from "./header";
 
 export const Layout = ({ children }: React.PropsWithChildren) => {
@@ -8,6 +9,7 @@ export const Layout = ({ children }: React.PropsWithChildren) => {
       <footer>
         <h1>Footer</h1>
       </footer>
+      <Toaster />
     </div>
   );
 };
