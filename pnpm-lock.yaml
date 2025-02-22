@@ -23,6 +23,9 @@ dependencies:
   '@tailwindcss/vite':
     specifier: ^4.0.7
     version: 4.0.7(vite@6.1.1)
+  '@techstark/opencv-js':
+    specifier: 4.10.0-release.1
+    version: 4.10.0-release.1
   lucide-react:
     specifier: ^0.475.0
     version: 0.475.0(react@19.0.0)
@@ -1296,6 +1299,10 @@ packages:
       lightningcss: 1.29.1
       tailwindcss: 4.0.7
       vite: 6.1.1(@types/node@22.13.4)
+    dev: false
+
+  /@techstark/opencv-js@4.10.0-release.1:
+    resolution: {integrity: sha512-S4XELidRiQeA0q1s9VQLo540wCxUo24r1O4C+LqZ6llX+sPCXvZCPv3Ice8dEIr0uavyZ8YZeKXSBdDgMXSXjw==}
     dev: false
 
   /@types/estree@1.0.6:

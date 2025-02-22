@@ -24,7 +24,7 @@
         "useSortedClasses": {
           "level": "error",
           "options": {
-            "functions": ["cx", "cv", "cn"]
+            "functions": ["cx", "cva", "cn"]
           }
         }
       }

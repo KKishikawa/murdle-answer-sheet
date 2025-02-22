@@ -47,29 +47,29 @@ type ClassProp = {
 };
 export type VariantProps<Component extends (...args: never[]) => unknown> =
   Omit<OmitUndefined<Parameters<Component>[0]>, "className">;
-type CVConfigSchema = Record<string, Record<string, CXValue>>;
-type CVConfigVariants<T extends CVConfigSchema> = {
+type CVAConfigSchema = Record<string, Record<string, CXValue>>;
+type CVAConfigVariants<T extends CVAConfigSchema> = {
   [Variant in keyof T]?: StringToBoolean<keyof T[Variant]> | null | undefined;
 };
-export type CVConfig<T> = T extends CVConfigSchema
+export type CVAConfig<T> = T extends CVAConfigSchema
   ? {
       variants?: T;
-      defaultVariants?: CVConfigVariants<T>;
+      defaultVariants?: CVAConfigVariants<T>;
     }
   : never;
 
-export type CVProps<T> = T extends CVConfigSchema
-  ? CVConfigVariants<T> & ClassProp
+export type CVAProps<T> = T extends CVAConfigSchema
+  ? CVAConfigVariants<T> & ClassProp
   : ClassProp;
 /**
- * cv is designed to be a more flexible definition of cx/cn that allows for the use of variants.
+ * cva is designed to be a more flexible definition of cx/cn that allows for the use of variants.
  * @param base base styles
  * @param config override style configurations
  * @returns
  */
-export const cv =
-  <T>(base?: CXValue, config?: CVConfig<T>) =>
-  (props?: CVProps<T>) => {
+export const cva =
+  <T>(base?: CXValue, config?: CVAConfig<T>) =>
+  (props?: CVAProps<T>) => {
     if (config?.variants == null) return cn(base, props?.className);
 
     const { variants, defaultVariants } = config;

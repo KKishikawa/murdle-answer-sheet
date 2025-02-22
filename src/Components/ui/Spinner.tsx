@@ -1,10 +1,10 @@
-import { cv } from "@/lib/cx";
+import { cva } from "@/lib/cxs";
 
 export type SpinnerProps = {
   size?: "sm" | "md" | "lg";
 };
 
-const SpinnerVariants = cv(
+const SpinnerVariants = cva(
   "animate-spin fill-blue-600 text-gray-200 dark:text-gray-600",
   {
     variants: {

@@ -1,4 +1,4 @@
-import { cn, cv, cx } from "@/lib/cx";
+import { cn, cva, cx } from "@/lib/cxs";
 import { describe, expect, it, test, vi } from "vitest";
 
 describe("cx", () => {
@@ -80,9 +80,9 @@ describe("cn", () => {
   });
 });
 
-describe("cv", () => {
+describe("cva", () => {
   it("should return class string", () => {
-    const cva = cv("text-red-300", {
+    const variants = cva("text-red-300", {
       variants: {
         size: {
           sm: "h-4",
@@ -93,13 +93,13 @@ describe("cv", () => {
       defaultVariants: { size: "md" },
     });
 
-    expect(cva()).toBe("text-red-300 h-8");
-    expect(cva({ size: "sm" })).toBe("text-red-300 h-4");
-    expect(cva({ size: "md" })).toBe("text-red-300 h-8");
-    expect(cva({ size: "lg" })).toBe("text-red-300 h-12");
+    expect(variants()).toBe("text-red-300 h-8");
+    expect(variants({ size: "sm" })).toBe("text-red-300 h-4");
+    expect(variants({ size: "md" })).toBe("text-red-300 h-8");
+    expect(variants({ size: "lg" })).toBe("text-red-300 h-12");
   });
   it("shoud empty string if no default variants", () => {
-    const cva = cv("h-1/2", {
+    const variants = cva("h-1/2", {
       variants: {
         "text-color": {
           red: "text-red-300",
@@ -108,10 +108,10 @@ describe("cv", () => {
       },
     });
 
-    expect(cva()).toBe("h-1/2");
-    expect(cva({ "text-color": "red" })).toBe("h-1/2 text-red-300");
-    expect(cva({ "text-color": "blue" })).toBe("h-1/2 text-blue-300");
+    expect(variants()).toBe("h-1/2");
+    expect(variants({ "text-color": "red" })).toBe("h-1/2 text-red-300");
+    expect(variants({ "text-color": "blue" })).toBe("h-1/2 text-blue-300");
     // @ts-expect-error TS2322
-    expect(cva({ "text-color": "green" })).toBe("h-1/2");
+    expect(variants({ "text-color": "green" })).toBe("h-1/2");
   });
 });
