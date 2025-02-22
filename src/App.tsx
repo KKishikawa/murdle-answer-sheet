@@ -1,10 +1,13 @@
-import { AnswerLoader } from "@/components/AnswerLoader";
-import { ThemeProvider } from "@/components/theme-provider";
+import { Layout } from "@/components/layout";
+import { ImageSelector } from "@/components/page/image-selector";
+import { ThemeProvider } from "@/components/provider/theme-provider";
 
 function App() {
   return (
     <ThemeProvider>
-      <AnswerLoader />
+      <Layout>
+        <ImageSelector />
+      </Layout>
     </ThemeProvider>
   );
 }
